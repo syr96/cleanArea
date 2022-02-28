@@ -1,85 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>청정구역</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
 	<div id="wrap">
-		<header>
-			<div class="d-flex justify-content-between align-items-center">
-				<a href="/main_view" class="text-decoration-none m-3"><h1 class="text-dark">청정구역</h1></a>
-				<div class="m-3">
-					<a href="#" class="text-decoration-none m-3"><span class="text-dark">오시는길</span></a>
-					<a href="#" class="text-decoration-none"><span class="text-dark">공지사항</span></a>
+		<c:import url="/WEB-INF/jsp/include/header.jsp" />
+		<section class="d-flex justify-content-center">
+			
+			<article class="banner col-6 m-3">
+				<img src="/static/image/1_main1.jpg" id="bannerImage">
+				<!-- 슬라이드되는 버튼 생성 필요, 각 이미지 클릭 시 해당하는 페이지로 이동 -->
+			</article>
+			
+			<article class="reservation d-flex align-items-center m-3">
+				<div class="text-center">
+					<div>
+						<p>청소, 방역, 생활수리 전문</p>
+						<p>청정구역 입니다</p>
+					</div>
+					<a href="/reservation/view" class="btn btn-info btn-block">실시간 예약하기</a>
 				</div>
-			</div>
-			<div class="menu d-flex justify-content-center bg-info">
-				<nav class="col-8">
-					<ul class="nav nav-fill">
-						<li class="nav-item dropdown menu_1">
-							<a href="#" class="nav-link text-dark" data-bs-toggle="dropdown">예약하기</a>
-							<div class="d-flex justify-content-center">
-								<ul class="dropdown-menu sub_1 text-center bg-light">
-									<li><a href="#" class="dropdown-item">예약하기</a></li>
-									<li><a href="#" class="dropdown-item">예약조회</a></li>
-									<li><a href="#" class="dropdown-item">문의하기</a></li>
-								</ul>
-							</div>
-						</li>
-						
-						<li class="nav-item dropdown menu_2">
-							<a href="#" class="nav-link text-dark" data-bs-toggle="dropdown">청소후기</a>
-							<div class="d-flex justify-content-center">
-								<ul class="dropdown-menu sub_2 text-center bg-light">
-									<li><a href="#" class="dropdown-item">고객후기</a></li>
-									<li><a href="#" class="dropdown-item">청소꿀팁</a></li>
-								</ul>
-							</div>
-						</li>
-						
-						<li class="nav-item dropdown menu_3">
-							<a href="#" class="nav-link text-dark" data-bs-toggle="dropdown">청소종류</a>
-							<div class="d-flex justify-content-center">
-								<ul class="dropdown-menu sub_3 text-center bg-light">
-									<li><a href="#" class="dropdown-item">입주</a></li>
-									<li><a href="#" class="dropdown-item">이사</a></li>
-									<li><a href="#" class="dropdown-item">냉장고</a></li>
-									<li><a href="#" class="dropdown-item">세탁기</a></li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-		
-		<section class="bg-danger box">
+			</article>
 			
 		</section>
-		
-		<footer class="bg-light">
-			<div class="mx-3 py-3">
-					<p>
-						청정구역 | 대표자: 석승범 | 주소: <a href="#" class="text-decoration-none text-dark">서울특별시 노원구 한글비석로 46길 77 (상계동)</a> | 사업자등록번호: 799-52-00827
-					</p>
-					<p>
-						전화번호: 02-937-5734 | 010-8985-2634 | 이메일: beom5735@naver.com
-					</p>
-					<p>
-						Copyright 2022. 청정구역. All rights reserved.
-					</p>
-			</div>
-		</footer>
+		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
-	<script>
+	
+	<script>		
 		$(document).ready(function() {
 			
 			$(".menu_1").on("mouseover", function() {
@@ -106,6 +68,17 @@
 				$(".sub_3").hide();
 			});
 			
+			var bannerList = ["/static/image/1_main1.jpg", "/static/image/1_main2.jpg", "/static/image/1_main3.jpg"];
+			var currentImageIndex = 0;
+			
+			setInterval(function() {
+				$("#bannerImage").attr("src", bannerList[currentImageIndex]);
+				currentImageIndex++;
+				
+				if(currentImageIndex == bannerList.length) {
+					currentImageIndex = 0;
+				}
+			}, 3000);
 		});
 	</script>
 </body>
