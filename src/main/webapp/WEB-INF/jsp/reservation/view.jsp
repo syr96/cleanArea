@@ -11,7 +11,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
@@ -67,8 +68,17 @@
 					</div>
 					<select class="custom-select" id="timeInput">
 						<option selected>-- 선택 --</option>
-						<option value="8">오전 8시</option>
-						<option value="9">오전 9시</option>
+						
+						<!-- 오전 -->
+						<%	for(int i = 8; i < 12; i++) {	%>
+							<option value="<%=i %>">오전 <%=i %>시</option>								
+						<%	}	%>
+						
+						<!-- 오후 -->
+						<%	for(int i = 1; i < 7; i++) {	%>
+							<option value="<%=i %>">오후 <%=i %>시</option>								
+						<%	}	%>
+						
 					</select>
 				</div>
 				
@@ -81,12 +91,14 @@
 	<script>
 		$(document).ready(function() {
 			$("#dateInput").datepicker({
-				minDate:0,
-				showButtonPanel:true,
+				dateFormat:"yy-mm-dd",
+				prevText: "이전 달",
+				nextText: "다음 달",
 				currentText: '오늘',
-				dateFormat:"yyyy-mm-dd",
-				dayNamesMin:['월', '화', '수', '목', '금', '토', '일']
-				
+				dayNamesMin:['일', '월', '화', '수', '목', '금', '토'],
+				yearSuffix: "년",
+				monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+				showMonthAfterYear: true
 			});
 		});
 	</script>

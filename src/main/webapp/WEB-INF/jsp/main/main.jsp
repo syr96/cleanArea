@@ -11,7 +11,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
@@ -22,12 +23,12 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex justify-content-center">
 			
-			<article class="banner col-6 m-3">
+			<article class="banner col-6 mr-5">
 				<img src="/static/image/1_main1.jpg" id="bannerImage">
 				<!-- 슬라이드되는 버튼 생성 필요, 각 이미지 클릭 시 해당하는 페이지로 이동 -->
 			</article>
 			
-			<article class="reservation d-flex align-items-center m-3">
+			<article class="reservation d-flex align-items-center">
 				<div class="text-center">
 					<div>
 						<p>청소, 방역, 생활수리 전문</p>
@@ -43,30 +44,6 @@
 	
 	<script>		
 		$(document).ready(function() {
-			
-			$(".menu_1").on("mouseover", function() {
-				$(".sub_1").slideDown();
-			});
-			
-			$(".menu_1").on("mouseleave", function() {
-				$(".sub_1").hide();
-			});
-			
-			$(".menu_2").on("mouseover", function() {
-				$(".sub_2").slideDown();
-			});
-			
-			$(".menu_2").on("mouseleave", function() {
-				$(".sub_2").hide();
-			});
-			
-			$(".menu_3").on("mouseover", function() {
-				$(".sub_3").slideDown();
-			});
-			
-			$(".menu_3").on("mouseleave", function() {
-				$(".sub_3").hide();
-			});
 			
 			var bannerList = ["/static/image/1_main1.jpg", "/static/image/1_main2.jpg", "/static/image/1_main3.jpg"];
 			var currentImageIndex = 0;

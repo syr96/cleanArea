@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<header>
+	<header class="mb-3">
 		<div class="d-flex justify-content-between align-items-center">
 			<a href="/main_view" class="text-decoration-none m-3"><h1 class="text-dark">청정구역</h1></a>
 			<div class="m-3">
@@ -16,7 +16,7 @@
 						<a href="#" class="nav-link text-dark" data-bs-toggle="dropdown">예약하기</a>
 						<div class="d-flex justify-content-center">
 							<ul class="dropdown-menu sub_1 text-center bg-light">
-								<li><a href="#" class="dropdown-item">예약하기</a></li>
+								<li><a href="/reservation/view" class="dropdown-item">예약하기</a></li>
 								<li><a href="#" class="dropdown-item">예약조회</a></li>
 								<li><a href="#" class="dropdown-item">문의하기</a></li>
 							</ul>
@@ -48,3 +48,33 @@
 			</nav>
 		</div>
 	</header>
+	
+	<script>
+		$(document).ready(function() {
+			
+			$(".menu_1").on("mouseover", function() {
+				$(".sub_1").slideDown();
+			});
+			
+			$(".menu_1").on("mouseleave", function() {
+				$(".sub_1").hide();
+			});
+			
+			$(".menu_2").on("mouseover", function() {
+				$(".sub_2").slideDown();
+			});
+			
+			$(".menu_2").on("mouseleave", function() {
+				$(".sub_2").hide();
+			});
+			
+			$(".menu_3").on("mouseover", function() {
+				$(".sub_3").slideDown();
+			});
+			
+			$(".menu_3").on("mouseleave", function() {
+				$(".sub_3").hide();
+			});
+			
+		});
+	</script>
