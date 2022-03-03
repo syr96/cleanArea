@@ -1,6 +1,5 @@
 package com.yullmaster.cleanArea.reservation;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class ReservationRestController {
 	private ReservationBO reservationBO;
 	
 	@PostMapping("/in")
-	public Map<String, String> reservationIn(
+	public Map<String, String> reservation(
 			@RequestParam("name") String name,
 			@RequestParam("phoneNumber") String phoneNumber,
 			@RequestParam("address") String address,
@@ -27,9 +26,14 @@ public class ReservationRestController {
 			@RequestParam("date") String date,
 			@RequestParam("time") String time) {
 		
-		int count = reservationBO.userInfo(name, phoneNumber);
 		
-		
-		Map<String, String> result = new HashMap<>();
 	}
+	
+//	public String addReservation(
+//			@ModelAttribute User user,
+//			@ModelAttribute Reservation reservation,
+//			Model model) {
+//		
+//		
+//	}
 }
