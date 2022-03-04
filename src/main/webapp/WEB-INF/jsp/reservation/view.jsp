@@ -22,67 +22,34 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex justify-content-center mt-3">
-			<form id="reservation">
-				<div class="input-group align-items-center">
-					<div class="input-group-prepend">
-						<label class="input-group-text" for="nameInput">이름</label>
-					</div>
-					<input type="text" placeholder="이름을 입력하세요" class="form-control" id="nameInput">
-				</div>
+			<form id="reservationForm" class="col-4">
+				<input type="text" placeholder="이름을 입력해주세요" class="form-control" id="nameInput">
+				<input type="tel" placeholder="핸드폰 번호를 입력해주세요" class="form-control mt-3" id="phoneNumberInput" maxlength="13" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+				<div id="notice" class="d-none"><small class="text-info">- 은 제외하고 입력해주세요</small></div>
+				<input type="text" placeholder="도/시/구 만 입력해주세요.(예: 서울시 노원구)" class="form-control mt-3" id="addressInput">
+				<select class="custom-select mt-3" id="cleanValueInput">
+					<option value="">-- 청소 종류 선택 --</option>
+					<option value="입주">입주</option>
+					<option value="에어컨">에어컨</option>
+					<option value="기타">기타</option>
+				</select>
+				<input type="text" placeholder="날짜를 선택해주세요" class="form-control mt-3" id="dateInput">
+				<select class="custom-select mt-3" id="timeInput">
+					<option value="">-- 예약 시간 선택 --</option>
+					
+					<!-- 오전 -->
+					<%	for(int i = 8; i < 12; i++) {	%>
+						<option value="<%=i %>">오전 <%=i %>시</option>								
+					<%	}	%>
+					
+					<!-- 오후 -->
+					<%	for(int i = 1; i < 7; i++) {	%>
+						<option value="<%=i %>">오후 <%=i %>시</option>								
+					<%	}	%>
+					
+				</select>
 				
-				<div class="input-group align-items-center mt-3">
-					<div class="input-group-prepend">
-						<label class="input-group-text" for="phoneNumberInput">핸드폰번호</label>
-					</div>
-					<input type="tel" placeholder="010-0000-0000" class="form-control" id="phoneNumberInput">
-				</div>
-				
-				<div class="input-group align-items-center mt-3">
-					<div class="input-group-prepend">
-						<label class="input-group-text" for="addressInput">주소</label>
-					</div>
-					<input type="text" placeholder="주소를 입력하세요" class="form-control" id="addressInput">
-				</div>
-				
-				<div class="input-group align-items-center mt-3">
-					<div class="input-group-prepend">
-						<label class="input-group-text" for="cleanValueInput">청소종류</label>
-					</div>
-					<select class="custom-select" id="cleanValueInput">
-						<option selected>-- 선택 --</option>
-						<option value="입주">입주</option>
-						<option value="에어컨">에어컨</option>
-					</select>
-				</div>
-				
-				<div class="input-group align-items-center mt-3">
-					<div class="input-group-prepend">
-						<label class="input-group-text" for="dateInput">날짜선택</label>
-					</div>
-					<input type="text" placeholder="날짜를 선택하세요" class="form-control" id="dateInput">
-				</div>
-				
-				<div class="input-group align-items-center mt-3">
-					<div class="input-group-prepend">
-						<label class="input-group-text" for="timeInput">시간선택</label>
-					</div>
-					<select class="custom-select" id="timeInput">
-						<option selected>-- 선택 --</option>
-						
-						<!-- 오전 -->
-						<%	for(int i = 8; i < 12; i++) {	%>
-							<option value="<%=i %>">오전 <%=i %>시</option>								
-						<%	}	%>
-						
-						<!-- 오후 -->
-						<%	for(int i = 1; i < 7; i++) {	%>
-							<option value="<%=i %>">오후 <%=i %>시</option>								
-						<%	}	%>
-						
-					</select>
-				</div>
-				
-				<button type="submit" class="btn btn-block btn-info mt-5">예약하기</button>
+				<button type="submit" class="btn btn-block btn-info mt-5" id="reservationBtn">예약하기</button>
 			</form>
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
@@ -90,6 +57,7 @@
 	
 	<script>
 		$(document).ready(function() {
+			
 			$("#dateInput").datepicker({
 				dateFormat:"yy-mm-dd",
 				prevText: "이전 달",
@@ -100,6 +68,80 @@
 				monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
 				showMonthAfterYear: true
 			});
+			
+			$("#reservationForm").on("submit", function(e) {
+				
+				e.preventDefault();
+				
+				var name = $("#nameInput").val();
+				var phoneNumber = $("#phoneNumberInput").val();
+				var address = $("#addressInput").val();
+				var cleanValue = $("#cleanValueInput").val();
+				var date = $("#dateInput").val();
+				var time = $("#timeInput").val();
+				
+				if(name == "") {
+					alert("이름을 입력하세요");
+					return;
+				}
+				
+				if(phoneNumber == "") {
+					alert("핸드폰 번호를 입력하세요");
+					return;
+				}
+				
+				if(address == "") {
+					alert("주소를 입력하세요");
+					return;
+				}
+				
+				if(cleanValue == "") {
+					alert("청소 종류를 선택하세요");
+					return;
+				}
+				
+				if(date == "") {
+					alert("날짜를 선택하세요");
+					return;
+				}				
+				
+				if(time == "") {
+					alert("예약 시간을 선택하세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"post",
+					url:"/reservation/view",
+					data:{"name":name, "phoneNumber":phoneNumber, "address":address, "cleanValue":cleanValue, "date":date, "time":time},
+					success:function(data) {
+						if(data.result == "success") {
+							alert();
+							location.href = "/reservation/lookup_view";
+						} else {
+							alert("예약하기 실패");
+						}
+					},
+					error:function() {
+						alert("에러 발생");
+					}
+				});
+				
+			});
+			
+			// 핸드폰 번호 입력 시 - 입력 금지
+			$("#phoneNumberInput").on("input", function() {
+				$("#notice").removeClass("d-none");
+			});
+			
+			// 핸드폰 번호 입력 시 - 자동 입력
+			$("#phoneNumberInput").on("keyup", function(e) {
+				
+				e.preventDefault();
+				
+				$(this).val($(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-"));
+			});
+			
 		});
 	</script>
 </body>
