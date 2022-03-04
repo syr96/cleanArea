@@ -18,8 +18,6 @@ public interface ReservationDAO {
 	
 	public int insertUser(User user);
 	
-	public User selectUserById(@Param("id") int id);
-	
 	public User selectUser(
 			@Param("name") String name,
 			@Param("phoneNumber") String phoneNumber);

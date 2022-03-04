@@ -14,21 +14,21 @@ public class ReservationBO {
 	
 	public int addReservation(
 			String name, String phoneNumber,
-			String address, String cleanType, String date, String time,
-			User user) {
+			String address, String cleanType, String date, String time) {
 		
-		User result = reservationDAO.selectUser(name, phoneNumber);
-		reservationDAO.selectUserById(id);
-		if(result != null) { // 이미 입력된 사용자 정보가 있는 경우
+		User user = reservationDAO.selectUser(name, phoneNumber);
+		if(user != null) { // 이미 입력된 사용자 정보가 있는 경우
 			
 			return reservationDAO.inserReservation(user.getId(), address, cleanType, date, time);
 			
 		} else { // 없는 경우
+			User newUser = new User();
+			newUser.setName(name);
+			newUser.setPhoneNumber(phoneNumber);
 			
+			reservationDAO.insertUser(newUser);
+			
+			return reservationDAO.inserReservation(newUser.getId(), address, cleanType, date, time);
 		}
 	}
-	
-//	public int addReservation(User user, Reservation reservation) {
-//		
-//	}
 }
