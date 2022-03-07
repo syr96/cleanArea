@@ -16,10 +16,14 @@ public class ReservationBO {
 			String name, String phoneNumber,
 			String address, String cleanType, String date, String time) {
 		
+		// 2022-03-07 21:23:30 일반적인 시간 형태
+		String dateTime = date + " " + time + ":00:00";
+		
 		User user = reservationDAO.selectUser(name, phoneNumber);
+		
 		if(user != null) { // 이미 입력된 사용자 정보가 있는 경우
 			
-			return reservationDAO.inserReservation(user.getId(), address, cleanType, date, time);
+			return reservationDAO.inserReservation(user.getId(), address, cleanType, dateTime);
 			
 		} else { // 없는 경우
 			User newUser = new User();
@@ -28,7 +32,7 @@ public class ReservationBO {
 			
 			reservationDAO.insertUser(newUser);
 			
-			return reservationDAO.inserReservation(newUser.getId(), address, cleanType, date, time);
+			return reservationDAO.inserReservation(newUser.getId(), address, cleanType, dateTime);
 		}
 	}
 }

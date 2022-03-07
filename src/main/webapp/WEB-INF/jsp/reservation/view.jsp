@@ -27,7 +27,7 @@
 				<input type="tel" placeholder="핸드폰 번호를 입력해주세요" class="form-control mt-3" id="phoneNumberInput" maxlength="13" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
 				<div id="notice" class="d-none"><small class="text-info">- 은 제외하고 입력해주세요</small></div>
 				<input type="text" placeholder="도/시/구 만 입력해주세요.(예: 서울시 노원구)" class="form-control mt-3" id="addressInput">
-				<select class="custom-select mt-3" id="cleanValueInput">
+				<select class="custom-select mt-3" id="cleanTypeInput">
 					<option value="">-- 청소 종류 선택 --</option>
 					<option value="입주">입주</option>
 					<option value="에어컨">에어컨</option>
@@ -44,7 +44,7 @@
 					
 					<!-- 오후 -->
 					<%	for(int i = 1; i < 7; i++) {	%>
-						<option value="<%=i %>">오후 <%=i %>시</option>								
+						<option value="<%=i+12 %>">오후 <%=i %>시</option>								
 					<%	}	%>
 					
 				</select>
@@ -76,7 +76,7 @@
 				var name = $("#nameInput").val();
 				var phoneNumber = $("#phoneNumberInput").val();
 				var address = $("#addressInput").val();
-				var cleanValue = $("#cleanValueInput").val();
+				var cleanType = $("#cleanTypeInput").val();
 				var date = $("#dateInput").val();
 				var time = $("#timeInput").val();
 				
@@ -95,7 +95,7 @@
 					return;
 				}
 				
-				if(cleanValue == "") {
+				if(cleanType == "") {
 					alert("청소 종류를 선택하세요");
 					return;
 				}
@@ -112,11 +112,11 @@
 				
 				$.ajax({
 					type:"post",
-					url:"/reservation/view",
-					data:{"name":name, "phoneNumber":phoneNumber, "address":address, "cleanValue":cleanValue, "date":date, "time":time},
+					url:"/reservation/in",
+					data:{"name":name, "phoneNumber":phoneNumber, "address":address, "cleanType":cleanType, "date":date, "time":time},
 					success:function(data) {
 						if(data.result == "success") {
-							alert();
+							alert("예약 완료");
 							location.href = "/reservation/lookup_view";
 						} else {
 							alert("예약하기 실패");

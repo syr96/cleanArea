@@ -17,7 +17,7 @@
 						<div class="d-flex justify-content-center">
 							<ul class="dropdown-menu sub_1 text-center bg-light">
 								<li><a href="/reservation/view" class="dropdown-item">예약하기</a></li>
-								<li><a href="#" class="dropdown-item">예약조회</a></li>
+								<li><a href="/reservation/lookup_view" class="dropdown-item">예약조회</a></li>
 								<li><a href="#" class="dropdown-item">문의하기</a></li>
 							</ul>
 						</div>

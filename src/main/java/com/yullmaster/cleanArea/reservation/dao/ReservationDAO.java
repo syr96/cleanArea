@@ -13,8 +13,7 @@ public interface ReservationDAO {
 			@Param("userId") int userId,
 			@Param("address") String address,
 			@Param("cleanType") String cleanType,
-			@Param("date") String date,
-			@Param("time") String time);
+			@Param("dateTime") String date);
 	
 	public int insertUser(User user);
 	

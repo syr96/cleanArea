@@ -10,7 +10,6 @@
 			, `address`
 			, `cleanType`
 			, `date`
-			, `time`
 			, `createdAt`
 			, `updatedAt`
 		)
@@ -19,8 +18,7 @@
 			#{userId}
 			, #{address}
 			, #{cleanType}
-			, #{date}
-			, #{time}
+			, #{dateTime}
 			, now()
 			, now()
 		)
@@ -53,7 +51,7 @@
 		FROM
 			`user`
 		WHERE
-			`name` = #{name},
-			`phoneNumber` = #{phoneNumber}
+			`name` = #{name}
+			AND	`phoneNumber` = #{phoneNumber}
 	</select>
 </mapper>
