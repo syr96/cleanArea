@@ -8,7 +8,6 @@ public class Reservation {
 	private String address;
 	private String cleanType;
 	private Date date;
-	private Date time;
 	private Date createdAt;
 	private Date updatedAt;
 	
@@ -41,12 +40,6 @@ public class Reservation {
 	}
 	public void setDate(Date date) {
 		this.date = date;
-	}
-	public Date getTime() {
-		return time;
-	}
-	public void setTime(Date time) {
-		this.time = time;
 	}
 	public Date getCreatedAt() {
 		return createdAt;

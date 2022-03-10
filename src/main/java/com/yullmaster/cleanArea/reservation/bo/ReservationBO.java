@@ -1,9 +1,12 @@
 package com.yullmaster.cleanArea.reservation.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yullmaster.cleanArea.reservation.dao.ReservationDAO;
+import com.yullmaster.cleanArea.reservation.model.Reservation;
 import com.yullmaster.cleanArea.reservation.model.User;
 
 @Service
@@ -34,5 +37,10 @@ public class ReservationBO {
 			
 			return reservationDAO.inserReservation(newUser.getId(), address, cleanType, dateTime);
 		}
+	}
+	
+	public List<Reservation> getReservationList(
+			String name, String phoneNumber) {
+		
 	}
 }

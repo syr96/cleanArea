@@ -39,4 +39,11 @@ public class ReservationRestController {
 		
 		return result;
 	}
+	
+	@PostMapping("/lookup")
+	public Map<String, String> reservationView(
+			@RequestParam("name") String name,
+			@RequestParam("phoneNumber") String phoneNumber) {
+		
+	}
 }
