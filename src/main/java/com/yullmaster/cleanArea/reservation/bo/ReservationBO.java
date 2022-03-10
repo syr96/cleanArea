@@ -39,8 +39,10 @@ public class ReservationBO {
 		}
 	}
 	
-	public List<Reservation> getReservationList(
-			String name, String phoneNumber) {
+	public List<Reservation> getUser (String name, String phoneNumber) {
 		
+		User user = reservationDAO.selectUser(name, phoneNumber);
+		
+		return reservationDAO.selectReservationList(user.getId());
 	}
 }

@@ -55,7 +55,7 @@
 			AND	`phoneNumber` = #{phoneNumber}
 	</select>
 	
-	<select id="selectReservation" parameterType="int" resultType="com.yullmaster.cleanArea.reservation.model.Reservation">
+	<select id="selectReservationList" parameterType="int" resultType="com.yullmaster.cleanArea.reservation.model.Reservation">
 		SELECT
 			`id`
 			, `userId`
@@ -67,6 +67,6 @@
 		FROM
 			`reservation`
 		WHERE
-			`id` = #{id}
+			`userId` = #{userId}
 	</select>
 </mapper>

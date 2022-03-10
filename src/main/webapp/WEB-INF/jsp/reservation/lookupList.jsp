@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예약조회</title>
+<title>예약조회_신청내역</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -22,14 +22,31 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex justify-content-center mt-3">
-			<div class="col-4">
-				<article class="reservationConfirmBox">
-					<form id="reservationConfirm">
-						<input type="text" placeholder="이름을 입력해주세요" class="form-control" id="nameConfirmInput">
-						<input type="tel" placeholder="핸드폰 번호를 입력해주세요" class="form-control mt-3" id="phoneNumberConfirmInput" maxlength="13" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
-						
-						<button type="submit" class="btn btn-block btn-info mt-5" id="reservationConfirmBtn">조회하기</button>
-					</form>
+			<div class="col-7">
+			<h3>ㅇㅇㅇ님 예약 목록</h3>
+				<article class="reservationList mt-5">
+					<table class="table text-center">
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>신청날짜</th>
+								<th>신청시간</th>
+								<th>주소</th>
+								<th>청소종류</th>
+								<th>후기작성</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>2022.02.03</td>
+								<td>오후 3시</td>
+								<td>서울시 노원구</td>
+								<td>입주</td>
+								<td><a href="#" class="btn btn-info btn-sm">후기쓰기</a></td>
+							</tr>
+						</tbody>
+					</table>
 				</article>
 			</div>
 		</section>

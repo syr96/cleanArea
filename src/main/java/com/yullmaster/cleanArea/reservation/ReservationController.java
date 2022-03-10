@@ -18,4 +18,9 @@ public class ReservationController {
 	public String reservationLookupView() {
 		return "reservation/lookup";
 	}
+	
+	@GetMapping("/lookup_list")
+	public String reservationLookupList() {
+		return "reservation/lookupList";
+	}
 }

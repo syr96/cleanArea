@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yullmaster.cleanArea.reservation.bo.ReservationBO;
+import com.yullmaster.cleanArea.reservation.model.User;
 
 @RestController
 @RequestMapping("/reservation")
@@ -41,9 +43,12 @@ public class ReservationRestController {
 	}
 	
 	@PostMapping("/lookup")
-	public Map<String, String> reservationView(
+	public Map<String, String> reservationList(
 			@RequestParam("name") String name,
-			@RequestParam("phoneNumber") String phoneNumber) {
+			@RequestParam("phoneNumber") String phoneNumber,
+			Model model) {
+		
+		 User user = reservationBO.getUser(name, phoneNumber);
 		
 	}
 }
