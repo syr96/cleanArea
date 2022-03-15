@@ -54,19 +54,4 @@
 			`name` = #{name}
 			AND	`phoneNumber` = #{phoneNumber}
 	</select>
-	
-	<select id="selectReservationList" parameterType="int" resultType="com.yullmaster.cleanArea.reservation.model.Reservation">
-		SELECT
-			`id`
-			, `userId`
-			, `address`
-			, `cleanType`
-			, `date`
-			, `createdAt`
-			, `updatedAt`
-		FROM
-			`reservation`
-		WHERE
-			`userId` = #{userId}
-	</select>
 </mapper>

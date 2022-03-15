@@ -1,11 +1,8 @@
 package com.yullmaster.cleanArea.reservation.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import com.yullmaster.cleanArea.reservation.model.Reservation;
 import com.yullmaster.cleanArea.reservation.model.User;
 
 @Repository
@@ -23,6 +20,4 @@ public interface ReservationDAO {
 	public User selectUser(
 			@Param("name") String name,
 			@Param("phoneNumber") String phoneNumber);
-	
-	public List<Reservation> selectReservationList(@Param("userId") int userId);
 }

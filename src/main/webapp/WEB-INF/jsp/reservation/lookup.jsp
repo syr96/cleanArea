@@ -27,6 +27,7 @@
 					<form id="reservationConfirm">
 						<input type="text" placeholder="이름을 입력해주세요" class="form-control" id="nameConfirmInput">
 						<input type="tel" placeholder="핸드폰 번호를 입력해주세요" class="form-control mt-3" id="phoneNumberConfirmInput" maxlength="13" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+						<div id="notice" class="d-none"><small class="text-info">- 은 제외하고 입력해주세요</small></div>
 						
 						<button type="submit" class="btn btn-block btn-info mt-5" id="reservationConfirmBtn">조회하기</button>
 					</form>
@@ -35,5 +36,58 @@
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	<script>
+		$(document).ready(function(){
+			
+			$("#reservationConfirm").on("submit", function() {
+				var name = $("#nameConfirmInput").val();
+				var phoneNumber = $("#phoneNumberConfirmInput").val();
+				
+				if(name == "") {
+					alert("이름을 입력하세요");
+					return;
+				}
+				
+				if(phoneNumber == "") {
+					alert("핸드폰 번호를 입력하세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"post",
+					url:"/reservation/lookup",
+					data:{"name":name, "phoneNumber":phoneNumber},
+					success:function(data) {
+						if(data.result == "success") {
+							var user = data.user;
+							var message = "이름: " + user.name
+										+ "\n핸드폰 번호: " + user.phoneNumber;
+							
+							alert(message);
+							location.href = "/reservation/lookup_list";
+						} else {
+							alert("조회 실패");
+						}
+					},
+					error:function() {
+						alert("에러 발생");
+					}
+				});
+			});
+			
+			// 핸드폰 번호 입력 시 - 입력 금지
+			$("#phoneNumberConfirmInput").on("input", function() {
+				$("#notice").removeClass("d-none");
+			});
+			
+			// 핸드폰 번호 입력 시 - 자동 입력
+			$("#phoneNumberConfirmInput").on("keyup", function(e) {
+				
+				e.preventDefault();
+				
+				$(this).val($(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-"));
+			});
+		});
+	</script>
 </body>
 </html>

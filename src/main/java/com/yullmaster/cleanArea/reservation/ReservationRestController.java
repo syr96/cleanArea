@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,12 +42,21 @@ public class ReservationRestController {
 	}
 	
 	@PostMapping("/lookup")
-	public Map<String, String> reservationList(
+	public Map<String, Object> getUser(
 			@RequestParam("name") String name,
-			@RequestParam("phoneNumber") String phoneNumber,
-			Model model) {
+			@RequestParam("phoneNumber") String phoneNumber) {
 		
-		 User user = reservationBO.getUser(name, phoneNumber);
+		Map<String, Object> result = new HashMap<>();
 		
+		User user = reservationBO.getUser(name, phoneNumber);
+		
+		if(user != null) {
+			result.put("result", "success");
+			result.put("user", user);
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
 	}
 }
