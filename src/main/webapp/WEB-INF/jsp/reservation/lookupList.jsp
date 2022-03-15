@@ -23,7 +23,6 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex justify-content-center mt-3">
 			<div class="col-7">
-			<h3>ㅇㅇㅇ님 예약 목록</h3>
 				<article class="reservationList mt-5">
 					<table class="table text-center">
 						<thead>
@@ -37,14 +36,16 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>2022.02.03</td>
-								<td>오후 3시</td>
-								<td>서울시 노원구</td>
-								<td>입주</td>
-								<td><a href="#" class="btn btn-info btn-sm">후기쓰기</a></td>
-							</tr>
+							<c:forEach var="reservation" items="${ }">
+								<tr>
+									<td>1</td>
+									<td>2022.02.03</td>
+									<td>오후 3시</td>
+									<td>서울시 노원구</td>
+									<td>입주</td>
+									<td><a href="#" class="btn btn-info btn-sm">후기쓰기</a></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</article>
