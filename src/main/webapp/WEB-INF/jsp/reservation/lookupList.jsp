@@ -36,16 +36,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="reservation" items="${ }">
-								<tr>
-									<td>1</td>
-									<td>2022.02.03</td>
-									<td>오후 3시</td>
-									<td>서울시 노원구</td>
-									<td>입주</td>
-									<td><a href="#" class="btn btn-info btn-sm">후기쓰기</a></td>
-								</tr>
-							</c:forEach>
+							<tr>
+								<td>1</td>
+								<td>2022.02.03</td>
+								<td>오후 3시</td>
+								<td>서울시 노원구</td>
+								<td>입주</td>
+								<td><a href="#" class="btn btn-info btn-sm">후기쓰기</a></td>
+							</tr>
 						</tbody>
 					</table>
 				</article>
