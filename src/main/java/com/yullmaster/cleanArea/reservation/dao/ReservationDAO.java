@@ -24,5 +24,6 @@ public interface ReservationDAO {
 			@Param("name") String name,
 			@Param("phoneNumber") String phoneNumber);
 	
-	public List<Reservation> selectReservation(@Param("id") int id);
+	public List<Reservation> selectReservationList(
+			@Param("userId") int userId);
 }

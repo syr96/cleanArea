@@ -59,9 +59,9 @@
 					data:{"name":name, "phoneNumber":phoneNumber},
 					success:function(data) {
 						if(data.result == "success") {
-							var user = data.user;
-							var message = "이름: " + user.name
-										+ "\n핸드폰 번호: " + user.phoneNumber;
+							var reservationList = data.reservationList;
+							var message = "이름: " + reservationList.name
+										+ "\n핸드폰 번호: " + reservationList.phoneNumber;
 							
 							alert(message);
 							location.href = "/reservation/lookup_list";
