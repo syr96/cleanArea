@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +26,7 @@
 		<section class="d-flex justify-content-center mt-3">
 			<div class="col-7">
 				<article class="reservationList mt-5">
+					<h3>${name} 님의 예약목록</h3>
 					<table class="table text-center">
 						<thead>
 							<tr>
@@ -36,14 +39,22 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>2022.02.03</td>
-								<td>오후 3시</td>
-								<td>서울시 노원구</td>
-								<td>입주</td>
-								<td><a href="#" class="btn btn-info btn-sm">후기쓰기</a></td>
-							</tr>
+							<c:forEach var="reservation" items="${reservationList }" varStatus="status">
+								<tr>
+									<td>${status.count }</td>
+									<td>
+										<fmt:formatDate var="date" value="${reservation.date }" pattern="yyyy년 MM월 dd일" />
+										${date }
+									</td>
+									<td>
+										<fmt:formatDate var="time" value="${reservation.date }" pattern="HH시" />
+										${time }
+									</td>
+									<td>${reservation.address }</td>
+									<td>${reservation.cleanType }</td>
+									<td><a href="#" class="btn btn-info btn-sm">후기쓰기</a></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</article>

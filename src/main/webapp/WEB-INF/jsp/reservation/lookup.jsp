@@ -24,9 +24,9 @@
 		<section class="d-flex justify-content-center mt-3">
 			<div class="col-4">
 				<article class="reservationConfirmBox">
-					<form id="reservationConfirm">
-						<input type="text" placeholder="이름을 입력해주세요" class="form-control" id="nameConfirmInput">
-						<input type="tel" placeholder="핸드폰 번호를 입력해주세요" class="form-control mt-3" id="phoneNumberConfirmInput" maxlength="13" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+					<form id="reservationConfirm" method="get" action="/reservation/lookup_list">
+						<input type="text" placeholder="이름을 입력해주세요" class="form-control" id="nameConfirmInput" name="name">
+						<input type="tel" placeholder="핸드폰 번호를 입력해주세요" class="form-control mt-3" id="phoneNumberConfirmInput" name="phoneNumber" maxlength="13" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
 						<div id="notice" class="d-none"><small class="text-info">- 은 제외하고 입력해주세요</small></div>
 						
 						<button type="submit" class="btn btn-block btn-info mt-5" id="reservationConfirmBtn">조회하기</button>
@@ -45,34 +45,13 @@
 				
 				if(name == "") {
 					alert("이름을 입력하세요");
-					return;
+					return false;
 				}
 				
 				if(phoneNumber == "") {
 					alert("핸드폰 번호를 입력하세요");
-					return;
+					return false;
 				}
-				
-				$.ajax({
-					type:"post",
-					url:"/reservation/lookup",
-					data:{"name":name, "phoneNumber":phoneNumber},
-					success:function(data) {
-						if(data.result == "success") {
-							var reservationList = data.reservationList;
-							var message = "이름: " + reservationList.name
-										+ "\n핸드폰 번호: " + reservationList.phoneNumber;
-							
-							alert(message);
-							location.href = "/reservation/lookup_list";
-						} else {
-							alert("조회 실패");
-						}
-					},
-					error:function() {
-						alert("에러 발생");
-					}
-				});
 			});
 			
 			// 핸드폰 번호 입력 시 - 입력 금지

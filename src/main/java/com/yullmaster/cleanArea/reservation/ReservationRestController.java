@@ -1,7 +1,6 @@
 package com.yullmaster.cleanArea.reservation;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yullmaster.cleanArea.reservation.bo.ReservationBO;
-import com.yullmaster.cleanArea.reservation.model.Reservation;
 
 @RestController
 @RequestMapping("/reservation")
@@ -35,25 +33,6 @@ public class ReservationRestController {
 		
 		if(count == 1) {
 			result.put("result", "success");
-		} else {
-			result.put("result", "fail");
-		}
-		
-		return result;
-	}
-	
-	@PostMapping("/lookup")
-	public Map<String, Object> getUser(
-			@RequestParam("name") String name,
-			@RequestParam("phoneNumber") String phoneNumber) {
-		
-		Map<String, Object> result = new HashMap<>();
-		
-		List<Reservation> reservationList = reservationBO.getUser(name, phoneNumber);
-		
-		if(reservationList != null) {
-			result.put("result", "success");
-			result.put("reservationList", reservationList);
 		} else {
 			result.put("result", "fail");
 		}
