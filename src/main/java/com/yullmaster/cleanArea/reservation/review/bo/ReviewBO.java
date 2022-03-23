@@ -25,10 +25,10 @@ public class ReviewBO {
 	}
 	
 	public int addReview(
-			int userId, int reservationId, 
+			int userId, int reservationId,
 			String reservationCleanType, String reservationDate,
 			String review, MultipartFile file) {
-		
+
 		String filePath = FileManagerService.saveFile(userId, file);
 		
 		return reviewDAO.insertReview(userId, reservationId, reservationCleanType, reservationDate, review, filePath);

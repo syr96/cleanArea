@@ -29,16 +29,21 @@
 					<h2>후기작성</h2>
 					<div class="border rounded mt-3">
 						<div class="m-3">
+							<!-- forEach문 필요 없음. 수정해야함 -->
 							<c:forEach var="reservation" items="${reservationListById }">
 								<div>
 									<label>청소종류</label>
-									<input type="text" class="form-control" readonly placeholder="${reservation.cleanType }">
+									<input type="text" id="cleanTypeInput" class="form-control" readonly value="${reservation.cleanType }">
 								</div>
 								<div class="mt-3">
+									<fmt:formatDate var="reservationDate" value="${reservation.date }" pattern="yyyy-MM-dd HH:00:00" />
+									<input type="hidden" id="dateTimeInput" value="${reservationDate }">
 									<fmt:formatDate var="dateTime" value="${reservation.date }" pattern="yyyy년 MM월 dd일 HH시"/>
 									<label>예약날짜 및 시간</label>
-									<input type="text" class="form-control" readonly placeholder="${dateTime }">
+									<input type="text" class="form-control" readonly value="${dateTime }">
 								</div>
+								<input type="hidden" id="idInput" value="${reservation.id }">
+								<input type="hidden" id="userIdInput" value="${reservation.userId }">
 							</c:forEach>
 							<div class="mt-3">
 								<label>리뷰</label>
@@ -62,6 +67,10 @@
 				
 				e.preventDefault();
 				
+				var reservationCleanType = $("#cleanTypeInput").val();
+				var reservationDate = $("#dateTimeInput").val();
+				var userId = $("#userIdInput").val();
+				var reservationId = $("#idInput").val();
 				var review = $("#reviewInput").val().trim();
 				
 				if(review == "") {
@@ -70,6 +79,10 @@
 				}
 				
 				var formData = new FormData();
+				formData.append("reservationCleanType", reservationCleanType);
+				formData.append("reservationDate", reservationDate);
+				formData.append("userId", userId);
+				formData.append("reservationId", reservationId);
 				formData.append("review", review);
 				formData.append("file", $("#fileInput")[0].files[0]);
 				

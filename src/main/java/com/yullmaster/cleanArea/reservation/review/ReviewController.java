@@ -24,6 +24,8 @@ public class ReviewController {
 			@RequestParam("id") int id,
 			Model model) {
 		
+		
+		// list 형태 아니어도 된다. 수정해야함
 		List<Reservation> reservationListById = reviewBO.getId(id);
 		
 		model.addAttribute("reservationListById", reservationListById);
