@@ -45,7 +45,7 @@
 								<textarea class="form-control w-100" rows="5" id="reviewInput"></textarea>
 							</div>
 							<div class="mt-3 d-flex justify-content-between">
-								<input type="file" id="imageInput">
+								<input type="file" id="fileInput">
 								<button type="button" class="btn btn-info" id="uploadBtn">등록하기</button>
 							</div>
 						</div>
@@ -55,6 +55,44 @@
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
-
+	<script>
+		$(document).ready(function() {
+			
+			$("#uploadBtn").on("click", function(e) {
+				
+				e.preventDefault();
+				
+				var review = $("#reviewInput").val().trim();
+				
+				if(review == "") {
+					alert("리뷰 내용을 작성하세요");
+					return;
+				}
+				
+				var formData = new FormData();
+				formData.append("review", review);
+				formData.append("file", $("#fileInput")[0].files[0]);
+				
+				$.ajax({
+					type:"post",
+					url:"/review/create",
+					data:formData,
+					enctype:"mutipart/form-data",
+					processData:false,
+					contentType:false,
+					success:function(data) {
+						if(data.result == "success") {
+							location.href = "/review/list_view";
+						} else {
+							alert("리뷰 작성 실패");
+						}
+					},
+					error:function() {
+						alert("에러 발생");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>
