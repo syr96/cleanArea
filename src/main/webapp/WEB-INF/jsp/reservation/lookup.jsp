@@ -25,11 +25,12 @@
 			<div class="col-4">
 				<article class="reservationConfirmBox">
 					<form id="reservationConfirm" method="get" action="/reservation/lookup_list">
-						<input type="text" placeholder="이름을 입력해주세요" class="form-control" id="nameConfirmInput" name="name">
+						<h2>예약조회</h2>
+						<input type="text" placeholder="이름을 입력해주세요" class="form-control mt-3" id="nameConfirmInput" name="name">
 						<input type="tel" placeholder="핸드폰 번호를 입력해주세요" class="form-control mt-3" id="phoneNumberConfirmInput" name="phoneNumber" maxlength="13" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
 						<div id="notice" class="d-none"><small class="text-info">- 은 제외하고 입력해주세요</small></div>
 						
-						<button type="submit" class="btn btn-block btn-info mt-5" id="reservationConfirmBtn">조회하기</button>
+						<button type="submit" class="btn btn-block btn-info mt-3" id="reservationConfirmBtn">조회하기</button>
 					</form>
 				</article>
 			</div>

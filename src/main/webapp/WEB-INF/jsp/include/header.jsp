@@ -27,7 +27,7 @@
 						<a href="#" class="nav-link text-dark" data-bs-toggle="dropdown">청소후기</a>
 						<div class="d-flex justify-content-center">
 							<ul class="dropdown-menu sub_2 text-center bg-light">
-								<li><a href="#" class="dropdown-item">고객후기</a></li>
+								<li><a href="/review/list_view" class="dropdown-item">고객후기</a></li>
 								<li><a href="#" class="dropdown-item">청소꿀팁</a></li>
 							</ul>
 						</div>

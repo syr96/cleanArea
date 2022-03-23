@@ -23,7 +23,8 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex justify-content-center mt-3">
 			<form id="reservationForm" class="col-4">
-				<input type="text" placeholder="이름을 입력해주세요" class="form-control" id="nameInput">
+				<h2>예약하기</h2>
+				<input type="text" placeholder="이름을 입력해주세요" class="form-control mt-3" id="nameInput">
 				<input type="tel" placeholder="핸드폰 번호를 입력해주세요" class="form-control mt-3" id="phoneNumberInput" maxlength="13" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
 				<div id="notice" class="d-none"><small class="text-info">- 은 제외하고 입력해주세요</small></div>
 				<input type="text" placeholder="도/시/구 만 입력해주세요.(예: 서울시 노원구)" class="form-control mt-3" id="addressInput">
@@ -49,7 +50,7 @@
 					
 				</select>
 				
-				<button type="submit" class="btn btn-block btn-info mt-5" id="reservationBtn">예약하기</button>
+				<button type="submit" class="btn btn-block btn-info mt-3" id="reservationBtn">예약하기</button>
 			</form>
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />

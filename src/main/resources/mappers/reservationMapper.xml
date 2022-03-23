@@ -69,4 +69,19 @@
 		WHERE
 			`userId` = #{userId}
 	</select>
+	
+	<select id="selectReservationId" parameterType="int" resultType="com.yullmaster.cleanArea.reservation.model.Reservation">
+		SELECT
+			`id`
+			, `userId`
+			, `address`
+			, `cleanType`
+			, `date`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`reservation`
+		WHERE
+			`id` = #{id}
+	</select>
 </mapper>
