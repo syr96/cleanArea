@@ -30,11 +30,22 @@
 					<div class="border rounded mt-3">
 						<div class="m-3">
 							<!-- forEach문 필요 없음. 수정해야함 -->
+							
+							<!-- 
 							<c:forEach var="reservation" items="${reservationListById }">
+							 -->
+							 
 								<div>
 									<label>청소종류</label>
 									<input type="text" id="cleanTypeInput" class="form-control" readonly value="${reservation.cleanType }">
+									
+									<!-- 
+									<input type="text" id="cleanTypeInput" class="form-control" readonly value="${reservation.cleanType }">
+									 -->
+									 
 								</div>
+								
+								<!-- 
 								<div class="mt-3">
 									<fmt:formatDate var="reservationDate" value="${reservation.date }" pattern="yyyy-MM-dd HH:00:00" />
 									<input type="hidden" id="dateTimeInput" value="${reservationDate }">
@@ -45,6 +56,8 @@
 								<input type="hidden" id="idInput" value="${reservation.id }">
 								<input type="hidden" id="userIdInput" value="${reservation.userId }">
 							</c:forEach>
+								 -->
+								 
 							<div class="mt-3">
 								<label>리뷰</label>
 								<textarea class="form-control w-100" rows="5" id="reviewInput"></textarea>

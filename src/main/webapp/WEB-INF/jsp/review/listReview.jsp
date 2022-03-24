@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,15 +25,16 @@
 		<section class="d-flex justify-content-center">
 			<div>
 				<h2>고객님의 후기</h2>
+				<c:forEach var="review" items="${reviewList }" />
 				<article class="d-flex justify-content-between border rounded mt-3">
 					<div class="col-2 m-2">
-						<img src="https://image.yes24.com/goods/80089979/XL" class="w-100">
+						<img src="${review.imagePath }" class="w-100">
 					</div>
 					<div class="col-9 border rounded m-4 bg-light">
 						<h3>ooo 님</h3>
-						<h5>입주</h5>
-						<div>(후기글)</div>
-						<small>(작성일)</small>
+						<h5>${review.reservationCleanType }</h5>
+						<div>${review.review }</div>
+						<small><fmt:formatDate value="${review.createdAt }" pattern="yyyy-MM-dd HH:mm:ss" /></small>
 					</div>
 				</article>
 			</div>

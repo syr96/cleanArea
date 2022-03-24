@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yullmaster.cleanArea.reservation.model.Reservation;
 import com.yullmaster.cleanArea.reservation.review.bo.ReviewBO;
+import com.yullmaster.cleanArea.reservation.review.model.Review;
 
 @Controller
 @RequestMapping("/review")
@@ -24,17 +25,20 @@ public class ReviewController {
 			@RequestParam("id") int id,
 			Model model) {
 		
+		Reservation reservation = reviewBO.getReservation(id);
 		
-		// list 형태 아니어도 된다. 수정해야함
-		List<Reservation> reservationListById = reviewBO.getId(id);
-		
-		model.addAttribute("reservationListById", reservationListById);
+		model.addAttribute("reservation", reservation);
 		
 		return "review/createReview";
 	}
 	
 	@GetMapping("/list_view")
-	public String reviewListView() {
+	public String reviewListView(Model model) {
+		
+		List<Review> reviewList = reviewBO.getReviewList();
+		
+		model.addAttribute("reviewList", reviewList);
+		
 		return "review/listReview";
 	}
 }

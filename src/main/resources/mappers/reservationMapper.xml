@@ -70,7 +70,7 @@
 			`userId` = #{userId}
 	</select>
 	
-	<select id="selectReservationId" parameterType="int" resultType="com.yullmaster.cleanArea.reservation.model.Reservation">
+	<select id="selectReservation" parameterType="int" resultType="com.yullmaster.cleanArea.reservation.model.Reservation">
 		SELECT
 			`id`
 			, `userId`

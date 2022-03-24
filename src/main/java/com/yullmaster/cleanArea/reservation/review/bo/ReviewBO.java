@@ -10,19 +10,22 @@ import com.yullmaster.cleanArea.common.FileManagerService;
 import com.yullmaster.cleanArea.reservation.dao.ReservationDAO;
 import com.yullmaster.cleanArea.reservation.model.Reservation;
 import com.yullmaster.cleanArea.reservation.review.dao.ReviewDAO;
+import com.yullmaster.cleanArea.reservation.review.model.Review;
 
 @Service
 public class ReviewBO {
 
+	
 	@Autowired
 	private ReservationDAO reservationDAO;
 	
+	public Reservation getReservation (int id) {
+		return reservationDAO.selectReservation(id);
+	}
+
+	
 	@Autowired
 	private ReviewDAO reviewDAO;
-	
-	public List<Reservation> getId (int id) {
-		return reservationDAO.selectReservationId(id);
-	}
 	
 	public int addReview(
 			int userId, int reservationId,
@@ -32,5 +35,9 @@ public class ReviewBO {
 		String filePath = FileManagerService.saveFile(userId, file);
 		
 		return reviewDAO.insertReview(userId, reservationId, reservationCleanType, reservationDate, review, filePath);
+	}
+	
+	public List<Review> getReviewList() {
+		return reviewDAO.selectReviewList();
 	}
 }

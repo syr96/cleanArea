@@ -26,4 +26,20 @@
 			, now()
 		)
 	</insert>
+	
+	<select id="selectReviewList" resultType="com.yullmaster.cleanArea.reservation.review.model.Review">
+		SELECT
+			`id`
+			, `userId`
+			, `reservationId`
+			, `reservationCleanType`
+			, `reservationDate`
+			, `review`
+			, `imagePath`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`review`
+		ORDER BY `id` DESC
+	</select>
 </mapper>
