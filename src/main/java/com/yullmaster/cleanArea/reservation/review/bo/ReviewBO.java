@@ -1,5 +1,7 @@
 package com.yullmaster.cleanArea.reservation.review.bo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class ReviewBO {
 			int userId, int reservationId,
 			String reservationCleanType, Date reservationDate,
 			String review, MultipartFile file) {
-
+		
 		String filePath = FileManagerService.saveFile(userId, file);
 		
 		return reviewDAO.insertReview(userId, reservationId, reservationCleanType, reservationDate, review, filePath);

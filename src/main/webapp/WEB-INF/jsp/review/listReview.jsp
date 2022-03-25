@@ -26,7 +26,7 @@
 			<div>
 				<h2>고객님의 후기</h2>
 				<c:forEach var="review" items="${reviewList }" />
-				<article class="d-flex justify-content-between border rounded mt-3">
+				<article class="d-flex justify-content-between border rounded mt-3 col-12">
 					<div class="col-2 m-2">
 						<img src="${review.imagePath }" class="w-100">
 					</div>
