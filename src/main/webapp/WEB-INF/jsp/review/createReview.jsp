@@ -47,8 +47,6 @@
 								
 								<!-- 
 								<div class="mt-3">
-									<fmt:formatDate var="reservationDate" value="${reservation.date }" pattern="yyyy-MM-dd HH:00:00" />
-									<input type="hidden" id="dateTimeInput" value="${reservationDate }">
 									<fmt:formatDate var="dateTime" value="${reservation.date }" pattern="yyyy년 MM월 dd일 HH시"/>
 									<label>예약날짜 및 시간</label>
 									<input type="text" class="form-control" readonly value="${dateTime }">

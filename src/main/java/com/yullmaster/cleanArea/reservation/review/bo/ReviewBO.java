@@ -1,5 +1,6 @@
 package com.yullmaster.cleanArea.reservation.review.bo;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class ReviewBO {
 	
 	public int addReview(
 			int userId, int reservationId,
-			String reservationCleanType, String reservationDate,
+			String reservationCleanType, Date reservationDate,
 			String review, MultipartFile file) {
 
 		String filePath = FileManagerService.saveFile(userId, file);

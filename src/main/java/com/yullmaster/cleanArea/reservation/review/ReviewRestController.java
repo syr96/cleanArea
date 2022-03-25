@@ -1,9 +1,11 @@
 package com.yullmaster.cleanArea.reservation.review;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,12 +21,13 @@ public class ReviewRestController {
 	@Autowired
 	private ReviewBO reviewBO;
 	
+	@DateTimeFormat
 	@PostMapping("/create")
 	public Map<String, String> review(
 			@RequestParam("userId") int userId,
 			@RequestParam("reservationId") int reservationId,
 			@RequestParam("reservationCleanType") String reservationCleanType,
-			@RequestParam("reservationDate") String reservationDate,
+			@RequestParam("reservationDate") Date reservationDate,
 			@RequestParam("review") String review,
 			@RequestParam(value = "file", required = false) MultipartFile file) {
 		
