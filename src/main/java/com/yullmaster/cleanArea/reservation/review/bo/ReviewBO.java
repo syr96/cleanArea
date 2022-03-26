@@ -1,7 +1,5 @@
 package com.yullmaster.cleanArea.reservation.review.bo;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 

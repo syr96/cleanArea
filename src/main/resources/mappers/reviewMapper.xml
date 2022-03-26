@@ -3,7 +3,7 @@
 
 <mapper namespace="com.yullmaster.cleanArea.reservation.review.dao.ReviewDAO">
 	<insert id="insertReview" parameterType="com.yullmaster.cleanArea.reservation.review.model.Review">
-		INSERT INTO `reservation`
+		INSERT INTO `review`
 		(
 			`userId`
 			, `reservationId`
