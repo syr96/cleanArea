@@ -23,20 +23,21 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex justify-content-center">
-			<div>
+			<div class="col-8">
 				<h2>고객님의 후기</h2>
-				<c:forEach var="review" items="${reviewList }" />
+				<c:forEach var="review" items="${reviewList }">
 				<article class="d-flex justify-content-between border rounded mt-3">
-					<div class="col-2 m-2">
+					<div class="col-4 m-2 d-flex align-items-center">
 						<img src="${review.imagePath }" class="w-100">
 					</div>
-					<div class="col-9 border rounded m-4 bg-light">
+					<div class="col-7 border rounded m-4 bg-light">
 						<h3>ooo 님</h3>
 						<h5>${review.reservationCleanType }</h5>
 						<div>${review.review }</div>
-						<small><fmt:formatDate value="${review.createdAt }" pattern="yyyy-MM-dd HH:mm:ss" /></small>
+						<small>작성일: <fmt:formatDate value="${review.createdAt }" pattern="yyyy-MM-dd HH:mm:ss" /></small>
 					</div>
 				</article>
+				</c:forEach>
 			</div>
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />

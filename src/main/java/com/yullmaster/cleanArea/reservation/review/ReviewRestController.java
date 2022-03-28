@@ -21,12 +21,12 @@ public class ReviewRestController {
 	@Autowired
 	private ReviewBO reviewBO;
 	
-	@DateTimeFormat
 	@PostMapping("/create")
 	public Map<String, String> review(
 			@RequestParam("userId") int userId,
 			@RequestParam("reservationId") int reservationId,
 			@RequestParam("reservationCleanType") String reservationCleanType,
+			@DateTimeFormat(pattern="yyyy년 MM월 dd일 HH시")
 			@RequestParam("reservationDate") Date reservationDate,
 			@RequestParam("review") String review,
 			@RequestParam(value = "file", required = false) MultipartFile file) {

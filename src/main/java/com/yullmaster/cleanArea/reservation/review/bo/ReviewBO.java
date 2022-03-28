@@ -32,7 +32,7 @@ public class ReviewBO {
 			int userId, int reservationId,
 			String reservationCleanType, Date reservationDate,
 			String review, MultipartFile file) {
-
+		
 		String filePath = FileManagerService.saveFile(userId, file);
 		
 		return reviewDAO.insertReview(userId, reservationId, reservationCleanType, reservationDate, review, filePath);
