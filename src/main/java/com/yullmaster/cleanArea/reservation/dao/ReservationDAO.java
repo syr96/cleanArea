@@ -28,4 +28,6 @@ public interface ReservationDAO {
 			@Param("userId") int userId);
 	
 	public Reservation selectReservation(@Param("id") int id);
+	
+	public User selectUserById(@Param("id") int ud);
 }

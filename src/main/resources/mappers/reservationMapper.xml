@@ -84,4 +84,17 @@
 		WHERE
 			`id` = #{id}
 	</select>
+	
+	<select id="selectUserById" parameterType="int" resultType="com.yullmaster.cleanArea.reservation.model.User">
+		SELECT
+			`id`
+			, `name`
+			, `phoneNumber`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`user`
+		WHERE
+			`id` = #{id}
+	</select>
 </mapper>

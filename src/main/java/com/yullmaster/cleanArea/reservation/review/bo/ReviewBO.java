@@ -1,5 +1,6 @@
 package com.yullmaster.cleanArea.reservation.review.bo;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,8 +11,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.yullmaster.cleanArea.common.FileManagerService;
 import com.yullmaster.cleanArea.reservation.dao.ReservationDAO;
 import com.yullmaster.cleanArea.reservation.model.Reservation;
+import com.yullmaster.cleanArea.reservation.model.User;
 import com.yullmaster.cleanArea.reservation.review.dao.ReviewDAO;
 import com.yullmaster.cleanArea.reservation.review.model.Review;
+import com.yullmaster.cleanArea.reservation.review.model.ReviewDetail;
 
 @Service
 public class ReviewBO {
@@ -38,7 +41,24 @@ public class ReviewBO {
 		return reviewDAO.insertReview(userId, reservationId, reservationCleanType, reservationDate, review, filePath);
 	}
 	
-	public List<Review> getReviewList() {
-		return reviewDAO.selectReviewList();
+	public List<ReviewDetail> getReviewList(int userId) {
+		
+		List<Review> reviewList = reviewDAO.selectReviewList();
+		
+		List<ReviewDetail> reviewDetailList = new ArrayList<>();
+		
+		for(Review review:reviewList) {
+			
+			User user = reservationDAO.selectUserById(userId);
+			
+			ReviewDetail reviewDetail = new ReviewDetail();
+			
+			reviewDetail.setReview(review);
+			reviewDetail.setUser(user);
+			
+			reviewDetailList.add(reviewDetail);
+		}
+		
+		return reviewDetailList;
 	}
 }

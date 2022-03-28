@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yullmaster.cleanArea.reservation.model.Reservation;
 import com.yullmaster.cleanArea.reservation.review.bo.ReviewBO;
-import com.yullmaster.cleanArea.reservation.review.model.Review;
+import com.yullmaster.cleanArea.reservation.review.model.ReviewDetail;
 
 @Controller
 @RequestMapping("/review")
@@ -33,11 +33,13 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/list_view")
-	public String reviewListView(Model model) {
+	public String reviewListView(
+			@RequestParam("userId") int userId,
+			Model model) {
 		
-		List<Review> reviewList = reviewBO.getReviewList();
+		List<ReviewDetail> reviewlist = reviewBO.getReviewList(userId);
 		
-		model.addAttribute("reviewList", reviewList);
+		model.addAttribute("reviewList", reviewlist);
 		
 		return "review/listReview";
 	}
