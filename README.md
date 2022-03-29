@@ -5,12 +5,26 @@
 - 예약하기, 예약조회, 후기작성 의 기능을 갖춤
 
 ### 🔗홈페이지
-[청정구역 바로가기](#)
-
-- 예약조회 테스트 계정 (예약하기 -> 예약조회 에서 확인 가능)
-- 이름: <mark>석유림</mark>
-- 핸드폰번호: <mark>010-3668-2634</mark>
+- [청정구역 바로가기](#)
+  - 예약조회 테스트 계정 (예약하기 -> 예약조회 에서 확인 가능)
+  - 이름: <mark>석유림</mark>
+  - 핸드폰번호: <mark>010-3668-2634</mark>
 
 ### 📖포트폴리오
 [포트폴리오 바로가기](#)
 
+### 1️⃣설계하기
+- UI 설계
+  - https://ovenapp.io/view/Er4HEdx97oOfgP1xy2nDPzbRthE1Cynd/
+- DB, URL 설계
+  - https://docs.google.com/spreadsheets/d/1zoXpHhYcAxxV3zpDdZjV7iiG6h7B9MkpXF71DpbimUY/edit#gid=23488153
+  
+### 2️⃣기능 맛보기
+- 예약하기 및 예약조회
+  - package: 
+  - 예약하기 view: 
+  - 예약조회 view:
+- 후기작성 및 후기보기
+  - package:
+  - 후기작성 view:
+  - 후기보기 view:
