@@ -21,25 +21,25 @@
   
 ### 2️⃣기능 맛보기
 - 예약하기 및 예약조회
-  - package: 
-  - 예약하기 view: 
-  - 예약조회 view:
+  - package: [com.yullmaster.cleanArea.reservation.*](https://github.com/syr96/cleanArea/tree/master/src/main/java/com/yullmaster/cleanArea/reservation)
+  - 예약하기 view: [/WEB-INF/jsp/reservation/view.jsp](https://github.com/syr96/cleanArea/blob/master/src/main/webapp/WEB-INF/jsp/reservation/view.jsp)
+  - 예약조회 view: [/WEB-INF/jsp/reservation/lookup.jsp](https://github.com/syr96/cleanArea/blob/master/src/main/webapp/WEB-INF/jsp/reservation/lookup.jsp)
 - 후기작성 및 후기보기
-  - package:
-  - 후기작성 view:
-  - 후기보기 view:
+  - package: [com.yullmaster.cleanArea.reservation.review.*](https://github.com/syr96/cleanArea/tree/master/src/main/java/com/yullmaster/cleanArea/reservation/review)
+  - 후기작성 view: [/WEB-INF/jsp/review/createReview.jsp](https://github.com/syr96/cleanArea/blob/master/src/main/webapp/WEB-INF/jsp/review/createReview.jsp)
+  - 후기보기 view: [/WEB-INF/jsp/review/createReview.jsp](https://github.com/syr96/cleanArea/blob/master/src/main/webapp/WEB-INF/jsp/review/listReview.jsp)
 
 ### 3️⃣자세히보기
 [청정구역 맛보기](#)
 
 ### ♻출처
-- Tomcat [#]
-- Mysql [#]
-- Spring framework [#]
-- Mybatis [#]
-- Bootstrap [#]
-- jQuery [#]
-- 이미지🖼 [#]
+- Tomcat [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
+- Mysql [GPLv2 or proprietary](https://www.gnu.org/licenses/gpl-3.0.html)
+- Spring framework [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
+- Mybatis [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- Bootstrap [MIT License](https://opensource.org/licenses/MIT)
+- jQuery [MIT License](https://opensource.org/licenses/MIT)
+- 이미지🖼 [pixabay](https://pixabay.com/ko/)
 
 ### 🎞향후 계획
 - 문의하기 게시판 추가
