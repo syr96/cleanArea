@@ -33,13 +33,13 @@
 [청정구역 맛보기](#)
 
 ### ♻출처
-- Tomcat [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
-- Mysql [GPLv2 or proprietary](https://www.gnu.org/licenses/gpl-3.0.html)
-- Spring framework [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
-- Mybatis [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
-- Bootstrap [MIT License](https://opensource.org/licenses/MIT)
-- jQuery [MIT License](https://opensource.org/licenses/MIT)
-- 이미지🖼 [pixabay](https://pixabay.com/ko/)
+- Tomcat: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
+- Mysql: [GPLv2 or proprietary](https://www.gnu.org/licenses/gpl-3.0)
+- Spring framework: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
+- Mybatis: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- Bootstrap: [MIT License](https://opensource.org/licenses/MIT)
+- jQuery: [MIT License](https://opensource.org/licenses/MIT)
+- 이미지🖼: [pixabay](https://pixabay.com/ko/)
 
 ### 🎞향후 계획
 - 문의하기 게시판 추가
