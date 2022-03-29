@@ -28,3 +28,20 @@
   - package:
   - 후기작성 view:
   - 후기보기 view:
+
+### 3️⃣자세히보기
+[청정구역 맛보기](#)
+
+### ♻출처
+- Tomcat [#]
+- Mysql [#]
+- Spring framework [#]
+- Mybatis [#]
+- Bootstrap [#]
+- jQuery [#]
+- 이미지🖼 [#]
+
+### 🎞향후 계획
+- 문의하기 게시판 추가
+- 청소하는 방법 업로드
+- 청소 종류 소개 추가
