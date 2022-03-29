@@ -25,16 +25,16 @@
 		<section class="d-flex justify-content-center">
 			<div class="col-8">
 				<h2>고객님의 후기</h2>
-				<c:forEach var="review" items="${reviewList }">
+				<c:forEach var="reviewlist" items="${reviewList }">
 				<article class="d-flex justify-content-between border rounded mt-3">
 					<div class="col-4 m-2 d-flex align-items-center">
-						<img src="${review.imagePath }" class="w-100">
+						<img src="${reviewlist.review.imagePath }" class="w-100">
 					</div>
 					<div class="col-7 border rounded m-4 bg-light">
-						<h3>ooo 님</h3>
-						<h5>${review.reservationCleanType }</h5>
-						<div>${review.review }</div>
-						<small>작성일: <fmt:formatDate value="${review.createdAt }" pattern="yyyy-MM-dd HH:mm:ss" /></small>
+						<h3>${reviewlist.user.name } 님</h3>
+						<h5>${reviewlist.review.reservationCleanType }</h5>
+						<div>${reviewlist.review.review }</div>
+						<small>작성일: <fmt:formatDate value="${reviewlist.review.createdAt }" pattern="yyyy-MM-dd HH:mm:ss" /></small>
 					</div>
 				</article>
 				</c:forEach>
