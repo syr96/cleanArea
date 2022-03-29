@@ -34,10 +34,9 @@ public class ReviewController {
 	
 	@GetMapping("/list_view")
 	public String reviewListView(
-			@RequestParam("userId") int userId,
 			Model model) {
 		
-		List<ReviewDetail> reviewlist = reviewBO.getReviewList(userId);
+		List<ReviewDetail> reviewlist = reviewBO.getReviewList();
 		
 		model.addAttribute("reviewList", reviewlist);
 		

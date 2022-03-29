@@ -41,13 +41,15 @@ public class ReviewBO {
 		return reviewDAO.insertReview(userId, reservationId, reservationCleanType, reservationDate, review, filePath);
 	}
 	
-	public List<ReviewDetail> getReviewList(int userId) {
+	public List<ReviewDetail> getReviewList() {
 		
 		List<Review> reviewList = reviewDAO.selectReviewList();
 		
 		List<ReviewDetail> reviewDetailList = new ArrayList<>();
 		
 		for(Review review:reviewList) {
+			
+			int userId = review.getUserId();
 			
 			User user = reservationDAO.selectUserById(userId);
 			
