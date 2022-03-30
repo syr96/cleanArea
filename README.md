@@ -30,7 +30,7 @@
   - 후기보기 view: [/WEB-INF/jsp/review/createReview.jsp](https://github.com/syr96/cleanArea/blob/master/src/main/webapp/WEB-INF/jsp/review/listReview.jsp)
 
 ### 3️⃣자세히보기
-[![청정구역 맛보기](https://img.youtube.com/vi/2ydUHYAFEW0)](https://youtu.be/2ydUHYAFEW0)
+[![청정구역 맛보기](https://img.youtube.com/vi/2ydUHYAFEW0/0.jpg)](https://youtu.be/2ydUHYAFEW0?t=0s)
 
 ### ♻출처
 - Tomcat: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
